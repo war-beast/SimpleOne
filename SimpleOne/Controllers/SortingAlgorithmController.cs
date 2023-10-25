@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleAlgo.Enums;
 using SimpleAlgo.Interfaces;
+using SimpleOne.Models;
 
 namespace SimpleOne.Controllers;
 
@@ -58,6 +59,24 @@ public class SortingAlgorithmController : Controller
 	public IActionResult CombSort([FromBody] IntegerSortingRequest request)
 	{
 		var result = _algorithmsService.GetSortResult(SortTypes.CombSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
+
+	/// <summary>
+	/// Сортировка вставками
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("insertInt")]
+	public IActionResult InsertionSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Values);
 
 		if (result.IsFailure)
 		{

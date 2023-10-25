@@ -9,13 +9,15 @@ public class SortAlgoFactory<T> : ISortAlgoFactory<T> where T : IComparable<T>
 
 	public SortAlgoFactory(IBubbleSortingStrategy<T> bubbleSortingStrategy,
 		IShakerSortingStrategy<T> shakerSortingStrategy,
-		ICombSortStrategy<T> combSortStrategy)
+		ICombSortStrategy<T> combSortStrategy,
+		IInsertionSortingStrategy<T> insertionSortingStrategy)
 	{
 		_sortAlgorithms = new Dictionary<SortTypes, ISortAlgorithm<T>>
 		{
 			{ SortTypes.BubbleSort, bubbleSortingStrategy },
 			{ SortTypes.ShakerSort, shakerSortingStrategy },
-			{ SortTypes.CombSort, combSortStrategy }
+			{ SortTypes.CombSort, combSortStrategy },
+			{ SortTypes.InsertionSort, insertionSortingStrategy }
 		};
 	}
 
