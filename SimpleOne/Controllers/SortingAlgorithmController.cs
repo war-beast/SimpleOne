@@ -14,6 +14,11 @@ public class SortingAlgorithmController : Controller
 		_algorithmsService = algorithmsService;
 	}
 
+	/// <summary>
+	/// Сортировка пузырьком
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("bubbleInt")]
 	public IActionResult BubbleSort([FromBody] IntegerSortingRequest request)
 	{
@@ -26,6 +31,11 @@ public class SortingAlgorithmController : Controller
 		return Ok(result.Data);
 	}
 
+	/// <summary>
+	/// Коктейльная сортировка
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("shakerInt")]
 	public IActionResult ShakerSort([FromBody] IntegerSortingRequest request)
 	{
@@ -39,6 +49,11 @@ public class SortingAlgorithmController : Controller
 		return Ok(result.Data);
 	}
 
+	/// <summary>
+	/// Сортировка расчёской
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
 	[HttpPost("combInt")]
 	public IActionResult CombSort([FromBody] IntegerSortingRequest request)
 	{
