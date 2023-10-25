@@ -66,4 +66,22 @@ public class SortingAlgorithmController : Controller
 
 		return Ok(result.Data);
 	}
+
+	/// <summary>
+	/// Сортировка вставками
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("insertInt")]
+	public IActionResult InsertionSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
 }

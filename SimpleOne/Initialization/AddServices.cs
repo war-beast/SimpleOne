@@ -11,7 +11,7 @@ public static class AddServices
 		services.AddTransient(typeof(IBubbleSortingStrategy<>), typeof(BubbleSortingStrategy<>));
 		services.AddTransient(typeof(IShakerSortingStrategy<>), typeof(ShakerSortingStrategy<>));
 		services.AddTransient(typeof(ICombSortStrategy<>), typeof(CombSortStrategy<>));
-		services.AddTransient(typeof(IInsertationSortingStrategy<>), typeof(InsertationSortingStrategy<>));
+		services.AddTransient(typeof(IInsertionSortingStrategy<>), typeof(InsertionSortingStrategy<>));
 
 		services.AddTransient(typeof(IAlgorithmsService<>), typeof(AlgorithmsService<>));
 	}
