@@ -25,4 +25,17 @@ public class SortingAlgorithmController : Controller
 
 		return Ok(result.Data);
 	}
+
+	[HttpPost("shakerInt")]
+	public IActionResult ShakerSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.ShakerSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
 }
