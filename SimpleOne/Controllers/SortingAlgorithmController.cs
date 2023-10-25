@@ -38,4 +38,17 @@ public class SortingAlgorithmController : Controller
 
 		return Ok(result.Data);
 	}
+
+	[HttpPost("combInt")]
+	public IActionResult CombSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.CombSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
 }
