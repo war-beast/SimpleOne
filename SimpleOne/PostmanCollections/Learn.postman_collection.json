@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "1e07a257-7145-467a-8dc3-7631bbeedbf8",
+		"name": "Learn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13417048"
+	},
+	"item": [
+		{
+			"name": "Сортировка пузырьком",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\": [3,56,3,5,67,4,2,0,4,6]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/algo/bubbleInt",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"algo",
+						"bubbleInt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Коктейльная сортировка",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\": [3,56,3,5,67,4,2,0,4,6]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/algo/shakerInt",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"algo",
+						"shakerInt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cортировка расчёской",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\": [3,56,-3,5,9,-4,19,0,4,6,-6]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/algo/combInt",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"algo",
+						"combInt"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
