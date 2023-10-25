@@ -4,4 +4,5 @@ public enum SortTypes
 {
     BubbleSort,
     ShakerSort,
+    CombSort,
 }

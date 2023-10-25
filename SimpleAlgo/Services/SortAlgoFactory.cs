@@ -8,12 +8,14 @@ public class SortAlgoFactory<T> : ISortAlgoFactory<T> where T : IComparable<T>
 	private readonly Dictionary<SortTypes, ISortAlgorithm<T>> _sortAlgorithms;
 
 	public SortAlgoFactory(IBubbleSortingStrategy<T> bubbleSortingStrategy,
-		IShakerSortingStrategy<T> shakerSortingStrategy)
+		IShakerSortingStrategy<T> shakerSortingStrategy,
+		ICombSortStrategy<T> combSortStrategy)
 	{
 		_sortAlgorithms = new Dictionary<SortTypes, ISortAlgorithm<T>>
 		{
 			{ SortTypes.BubbleSort, bubbleSortingStrategy },
-			{ SortTypes.ShakerSort, shakerSortingStrategy }
+			{ SortTypes.ShakerSort, shakerSortingStrategy },
+			{ SortTypes.CombSort, combSortStrategy }
 		};
 	}
 
