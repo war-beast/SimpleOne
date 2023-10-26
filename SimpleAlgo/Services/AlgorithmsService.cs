@@ -20,7 +20,7 @@ public class AlgorithmsService<T> : IAlgorithmsService<T> where T : IComparable<
 			var sortAlgo = _sortAlgoFactory.Create(sortType);
 			return Result.Success(sortAlgo.Sort(array));
 		}
-		catch (Exception e)
+		catch (ArgumentException e)
 		{
 			return Result.Failure<T[]>(e.Message);
 		}
