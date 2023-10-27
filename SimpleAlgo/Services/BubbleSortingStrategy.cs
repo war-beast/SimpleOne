@@ -13,7 +13,7 @@ public class BubbleSortingStrategy<T> : SortingStrategyBase<T>, IBubbleSortingSt
 			{
 				if (array[j].CompareTo(array[j + 1]) > 0)
 				{
-					(array[j], array[j + 1]) = (array[j + 1], array[j]);
+					Swap(ref array[j], ref array[j + 1]);
 				}
 			}
 		}
