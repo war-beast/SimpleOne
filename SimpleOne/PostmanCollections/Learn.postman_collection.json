@@ -121,6 +121,64 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Быстрая сортировка",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\": [3,56,-3,5,9,-4,19,0,4,6,-6,7]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/algo/quickInt",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"algo",
+						"quickInt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Сортировка слиянием",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\": [3,56,-3,5,9,-4,19,0,4,6,-6,7]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/algo/quickInt",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"algo",
+						"quickInt"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Security.Claims;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.Unicode;
 
 namespace SimpleOne.Middlewares;
 
@@ -41,6 +45,11 @@ public class ExceptionMiddleware
 			}
 
 			context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+			_logger.LogError("Ошибка приложения: {error}", JsonSerializer.Serialize(problemDetails, new JsonSerializerOptions
+			{
+				Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+			}));
 
 			await context.Response.WriteAsJsonAsync(problemDetails);
 	}
