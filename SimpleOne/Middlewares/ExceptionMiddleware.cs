@@ -27,30 +27,30 @@ public class ExceptionMiddleware
 		if (ex == null) return;
 
 		var problemDetails = new ProblemDetails
-			{
-				Title = "Ошибка приложения",
-			};
+		{
+			Title = "Ошибка приложения",
+		};
 
-			if (env.IsDevelopment())
-			{
-				problemDetails.Detail = string.IsNullOrWhiteSpace(ex.GetBaseException().Message)
-					? ex.GetBaseException().InnerException?.Message
-					: ex.GetBaseException().Message;
-			}
-			else
-			{
-				problemDetails.Detail = string.IsNullOrWhiteSpace(ex.GetBaseException().Message)
-					? ex.GetBaseException().InnerException?.Message
-					: ex.GetBaseException().Message;
-			}
+		if (env.IsDevelopment())
+		{
+			problemDetails.Detail = string.IsNullOrWhiteSpace(ex.GetBaseException().Message)
+				? ex.GetBaseException().InnerException?.Message
+				: ex.GetBaseException().Message;
+		}
+		else
+		{
+			problemDetails.Detail = string.IsNullOrWhiteSpace(ex.GetBaseException().Message)
+				? ex.GetBaseException().InnerException?.Message
+				: ex.GetBaseException().Message;
+		}
 
-			context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+		context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-			_logger.LogError("Ошибка приложения: {error}", JsonSerializer.Serialize(problemDetails, new JsonSerializerOptions
-			{
-				Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
-			}));
+		_logger.LogError("[{environment}] Ошибка приложения: {error}", env.EnvironmentName, JsonSerializer.Serialize(problemDetails, new JsonSerializerOptions
+		{
+			Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+		}));
 
-			await context.Response.WriteAsJsonAsync(problemDetails);
+		await context.Response.WriteAsJsonAsync(problemDetails);
 	}
 }
