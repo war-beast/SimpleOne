@@ -17,7 +17,7 @@ public class ShakerSortingStrategy<T> : SortingStrategyBase<T>, IShakerSortingSt
 			{
 				if (array[forwardIndex].CompareTo(array[forwardIndex + 1]) > 0)
 				{
-					(array[forwardIndex], array[forwardIndex + 1]) = (array[forwardIndex + 1], array[forwardIndex]);
+					Swap(ref array[forwardIndex], ref array[forwardIndex + 1]);
 				}
 			}
 
@@ -27,7 +27,7 @@ public class ShakerSortingStrategy<T> : SortingStrategyBase<T>, IShakerSortingSt
 			{
 				if (array[backIndex].CompareTo(array[backIndex - 1]) < 0)
 				{
-					(array[backIndex], array[backIndex - 1]) = (array[backIndex - 1], array[backIndex]);
+					Swap(ref array[backIndex], ref array[backIndex - 1]);
 				}
 			}
 

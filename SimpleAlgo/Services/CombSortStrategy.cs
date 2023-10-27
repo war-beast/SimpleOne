@@ -18,7 +18,7 @@ public class CombSortStrategy<T> : SortingStrategyBase<T>, ICombSortStrategy<T> 
 			{
 				if (array[i].CompareTo(array[i + step]) > 0)
 				{
-					(array[i], array[i + step]) = (array[i + step], array[i]);
+					Swap(ref array[i], ref array[i + step]);
 				}
 			}
 

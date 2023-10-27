@@ -11,7 +11,7 @@ public class InsertionSortingStrategy<T> : SortingStrategyBase<T>, IInsertionSor
 			var j = i;
 			while (j > 0 && array[j-1].CompareTo(array[j]) > 0)
 			{
-				(array[j], array[j - 1]) = (array[j - 1], array[j]);
+				Swap(ref array[j], ref array[j - 1]);
 
 				j--;
 			}
