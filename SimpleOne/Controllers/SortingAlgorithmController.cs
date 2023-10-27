@@ -103,4 +103,22 @@ public class SortingAlgorithmController : Controller
 
 		return Ok(result.Data);
 	}
+
+	/// <summary>
+	/// Сортировка слиянием
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("mergeInt")]
+	public IActionResult MergeSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.MergeSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
 }
