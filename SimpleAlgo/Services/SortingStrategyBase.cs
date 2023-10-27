@@ -6,5 +6,5 @@ public abstract class SortingStrategyBase<T> : ISortAlgorithm<T> where T : IComp
 {
 	public abstract T[] Sort(T[] array);
 
-	protected void Swap(ref T a, ref T b) => (a, b) = (b, a);
+	protected static void Swap(ref T a, ref T b) => (a, b) = (b, a);
 }
