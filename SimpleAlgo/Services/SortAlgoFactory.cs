@@ -11,7 +11,8 @@ public class SortAlgoFactory<T> : ISortAlgoFactory<T> where T : IComparable<T>
 		IShakerSortingStrategy<T> shakerSortingStrategy,
 		ICombSortStrategy<T> combSortStrategy,
 		IInsertionSortingStrategy<T> insertionSortingStrategy,
-		IQuickSortingStrategy<T> quickSortingStrategy)
+		IQuickSortingStrategy<T> quickSortingStrategy,
+		IMergeSortingStrategy<T> mergeSortingStrategy)
 	{
 		_sortAlgorithms = new Dictionary<SortTypes, ISortAlgorithm<T>>
 		{
@@ -19,7 +20,8 @@ public class SortAlgoFactory<T> : ISortAlgoFactory<T> where T : IComparable<T>
 			{ SortTypes.ShakerSort, shakerSortingStrategy },
 			{ SortTypes.CombSort, combSortStrategy },
 			{ SortTypes.InsertionSort, insertionSortingStrategy },
-			{ SortTypes.QuickSort, quickSortingStrategy }
+			{ SortTypes.QuickSort, quickSortingStrategy },
+			{ SortTypes.MergeSort, mergeSortingStrategy }
 		};
 	}
 
