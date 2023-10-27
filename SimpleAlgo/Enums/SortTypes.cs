@@ -7,4 +7,5 @@ public enum SortTypes
     CombSort,
     InsertionSort,
     QuickSort,
+    MergeSort,
 }
