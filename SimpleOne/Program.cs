@@ -1,4 +1,5 @@
 using SimpleOne.Initialization;
+using SimpleOne.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,13 @@ builder.Services.InstallSwagger();
 builder.Services.AddCustomServices();
 
 var app = builder.Build();
+
+var serviceProvider = builder.Services.BuildServiceProvider();
+
+app.UseExceptionHandler(new ExceptionHandlerOptions
+{
+	ExceptionHandler = new ExceptionMiddleware(serviceProvider.GetService<IHostEnvironment>()!, serviceProvider.GetService<ILogger<ExceptionMiddleware>>()!).Invoke
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

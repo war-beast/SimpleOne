@@ -94,6 +94,7 @@ public class SortingAlgorithmController : Controller
 	[HttpPost("quickInt")]
 	public IActionResult QuickSort([FromBody] IntegerSortingRequest request)
 	{
+		throw new InvalidOperationException("Test");
 		var result = _algorithmsService.GetSortResult(SortTypes.QuickSort, request.Values);
 
 		if (result.IsFailure)
