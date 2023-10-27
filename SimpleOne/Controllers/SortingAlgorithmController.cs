@@ -85,4 +85,22 @@ public class SortingAlgorithmController : Controller
 
 		return Ok(result.Data);
 	}
+
+	/// <summary>
+	/// Быстрая сортировка
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("quickInt")]
+	public IActionResult QuickSort([FromBody] IntegerSortingRequest request)
+	{
+		var result = _algorithmsService.GetSortResult(SortTypes.QuickSort, request.Values);
+
+		if (result.IsFailure)
+		{
+			return BadRequest(result.Error);
+		}
+
+		return Ok(result.Data);
+	}
 }
