@@ -1,5 +1,10 @@
+using BenchmarkDotNet.Running;
 using SimpleOne.Initialization;
 using SimpleOne.Middlewares;
+using SimpleOne.Utils;
+
+//Расскоментировать, если нужно запускать бенчмарки
+//var benchmark = BenchmarkRunner.Run<AlgorithmsBenchmark>();
 
 var builder = WebApplication.CreateBuilder(args);
 

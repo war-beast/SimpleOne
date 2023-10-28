@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOne", "SimpleOne\SimpleOne.csproj", "{5B314EE7-A284-4AAB-8904-CDB881A984C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAlgo", "SimpleAlgo\SimpleAlgo.csproj", "{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleAlgo", "SimpleAlgo\SimpleAlgo.csproj", "{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
