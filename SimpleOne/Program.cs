@@ -3,7 +3,7 @@ using SimpleOne.Initialization;
 using SimpleOne.Middlewares;
 using SimpleOne.Utils;
 
-//Расскоментировать, если нужно запускать бенчмарки
+//Р Р°СЃСЃРєРѕРјРµРЅС‚РёСЂРѕРІР°С‚СЊ, РµСЃР»Рё РЅСѓР¶РЅРѕ Р·Р°РїСѓСЃРєР°С‚СЊ Р±РµРЅС‡РјР°СЂРєРё
 //var benchmark = BenchmarkRunner.Run<AlgorithmsBenchmark>();
 
 var builder = WebApplication.CreateBuilder(args);
