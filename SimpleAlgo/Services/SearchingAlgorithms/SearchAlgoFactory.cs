@@ -5,17 +5,22 @@ namespace SimpleAlgo.Services.SearchingAlgorithms;
 
 public class SearchAlgoFactory<T> : ISearchAlgoFactory<T>
 {
-	private readonly Dictionary<SearchTypes, ISearchAlgorithm<T>> _algorithms = new();
+	private readonly Dictionary<SearchTypes, ISearchAlgorithm<T>> _algorithms;
 
-	public SearchAlgoFactory()
+	public SearchAlgoFactory(IBinarySearchStrategy<T> binarySearchStrategy)
 	{
-		//_algorithms.Add(
-		//	{ SearchTypes.Binary,  }
-		//);
+		_algorithms = new Dictionary<SearchTypes, ISearchAlgorithm<T>>{
+			{ SearchTypes.Binary, binarySearchStrategy },
+		};
 	}
 
 	public ISearchAlgorithm<T> Create(SearchTypes type)
 	{
-		throw new NotImplementedException();
+		if (_algorithms.TryGetValue(type, out var strategy))
+		{
+			return strategy;
+		}
+
+		throw new ArgumentException("Выбран неизвестный алгоритм поиска");
 	}
 }
