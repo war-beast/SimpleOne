@@ -4,8 +4,6 @@ namespace SimpleAlgo.Services.SearchingAlgorithms;
 
 public class BinarySearchStrategy<T> : SearchingStrategyBase<T>, IBinarySearchStrategy<T> where T : IComparable<T>
 {
-	private const int AbsentResult = -1;
-
 	public override int Find(T[] array, T searchElement)
 	{
 		return array.Length == 0 
