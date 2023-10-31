@@ -3,7 +3,7 @@ using SimpleAlgo.Interfaces.SearchingAlgorithms;
 
 namespace SimpleAlgo.Services.SearchingAlgorithms;
 
-public class SearchAlgoFactory<T> : ISearchAlgoFactory<T>
+public class SearchAlgoFactory<T> : ISearchAlgoFactory<T> where T : IComparable<T>
 {
 	private readonly Dictionary<SearchTypes, ISearchAlgorithm<T>> _algorithms;
 

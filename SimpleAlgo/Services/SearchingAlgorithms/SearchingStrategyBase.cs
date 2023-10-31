@@ -2,7 +2,7 @@
 
 namespace SimpleAlgo.Services.SearchingAlgorithms;
 
-public abstract class SearchingStrategyBase<T> : ISearchAlgorithm<T>
+public abstract class SearchingStrategyBase<T> : ISearchAlgorithm<T> where T : IComparable<T>
 {
-	public abstract T Find(T[] array, T searchElement);
+	public abstract int Find(T[] array, T searchElement);
 }

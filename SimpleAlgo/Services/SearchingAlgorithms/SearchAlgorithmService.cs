@@ -4,7 +4,7 @@ using SimpleAlgo.Models;
 
 namespace SimpleAlgo.Services.SearchingAlgorithms;
 
-public class SearchAlgorithmService<T> : ISearchingAlgorithmsService<T>
+public class SearchAlgorithmService<T> : ISearchingAlgorithmsService<T> where T : IComparable<T>
 {
 	private readonly ISearchAlgoFactory<T> _searchAlgoFactory;
 
@@ -13,7 +13,7 @@ public class SearchAlgorithmService<T> : ISearchingAlgorithmsService<T>
 		_searchAlgoFactory = searchAlgoFactory;
 	}
 
-	public Result<T> Find(SearchTypes type, T[] array, T searchElement)
+	public Result<int> Find(SearchTypes type, T[] array, T searchElement)
 	{
 		try
 		{
@@ -22,7 +22,7 @@ public class SearchAlgorithmService<T> : ISearchingAlgorithmsService<T>
 		}
 		catch (ArgumentException exc)
 		{
-			return Result.Failure<T>(exc.Message);
+			return Result.Failure<int>(exc.Message);
 		}
 	}
 }

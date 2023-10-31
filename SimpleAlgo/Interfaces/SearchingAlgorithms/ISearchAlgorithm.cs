@@ -2,7 +2,7 @@
 
 namespace SimpleAlgo.Interfaces.SearchingAlgorithms;
 
-public interface ISearchAlgorithm<T>
+public interface ISearchAlgorithm<in T> where T : IComparable<T>
 {
-	public T Find(T[] array, T searchElement);
+	public int Find(T[] array, T searchElement);
 }

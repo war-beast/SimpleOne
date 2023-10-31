@@ -3,7 +3,7 @@ using SimpleAlgo.Models;
 
 namespace SimpleAlgo.Interfaces.SearchingAlgorithms;
 
-public interface ISearchingAlgorithmsService<T>
+public interface ISearchingAlgorithmsService<in T> where T : IComparable<T>
 {
-	public Result<T> Find(SearchTypes type, T[] array, T searchElement);
+	public Result<int> Find(SearchTypes type, T[] array, T searchElement);
 }
