@@ -43,4 +43,29 @@ public class SearchingAlgorithmController : Controller
 			? Ok(result.Data) 
 			: BadRequest(result.Error);
 	}
+
+	/// <summary>
+	/// Поиск прыжками, он же поиск по переходам (Jump search)
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("jump")]
+	public IActionResult SearchByJump([FromBody] IntegerSearchRequest request)
+	{
+		#region Бинарный поиск работает только по отсортированному массиву
+
+		var sortedArrayResult = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Array);
+		if (sortedArrayResult.IsFailure)
+		{
+			BadRequest(sortedArrayResult.Error);
+		}
+
+		#endregion
+
+		var result = _searchingAlgorithmsService.Find(SearchTypes.Jump, sortedArrayResult.Data, request.Element);
+
+		return result.IsSuccess
+			? Ok(result.Data)
+			: BadRequest(result.Error);
+	}
 }
