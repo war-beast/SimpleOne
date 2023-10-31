@@ -1,6 +1,6 @@
 ﻿using SimpleAlgo.Enums;
 
-namespace SimpleAlgo.Interfaces;
+namespace SimpleAlgo.Interfaces.SortingAlgorithms;
 
 public interface ISortAlgoFactory<T> where T : IComparable<T>
 {

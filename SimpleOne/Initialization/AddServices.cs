@@ -1,5 +1,6 @@
 ﻿using SimpleAlgo.Interfaces;
-using SimpleAlgo.Services;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
+using SimpleAlgo.Services.SortingAlgorithms;
 
 namespace SimpleOne.Initialization;
 

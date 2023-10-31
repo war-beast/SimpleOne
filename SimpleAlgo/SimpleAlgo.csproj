@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Folder Include="Interfaces\SearchingAlgorithms\" />
   </ItemGroup>
 
 </Project>

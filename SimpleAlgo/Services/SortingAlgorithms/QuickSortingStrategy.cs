@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using SimpleAlgo.Interfaces;
+﻿using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 
-namespace SimpleAlgo.Services;
+namespace SimpleAlgo.Services.SortingAlgorithms;
 
 public class QuickSortingStrategy<T> : SortingStrategyBase<T>, IQuickSortingStrategy<T> where T : IComparable<T>
 {

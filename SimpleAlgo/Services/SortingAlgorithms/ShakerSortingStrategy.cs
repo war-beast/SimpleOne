@@ -1,6 +1,7 @@
 ﻿using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 
-namespace SimpleAlgo.Services;
+namespace SimpleAlgo.Services.SortingAlgorithms;
 
 public class ShakerSortingStrategy<T> : SortingStrategyBase<T>, IShakerSortingStrategy<T> where T : IComparable<T>
 {

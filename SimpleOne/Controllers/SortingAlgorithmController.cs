@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleAlgo.Enums;
 using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 using SimpleOne.Models;
 
 namespace SimpleOne.Controllers;

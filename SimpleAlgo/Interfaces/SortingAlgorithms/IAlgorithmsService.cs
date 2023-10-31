@@ -1,7 +1,7 @@
 ﻿using SimpleAlgo.Enums;
 using SimpleAlgo.Models;
 
-namespace SimpleAlgo.Interfaces;
+namespace SimpleAlgo.Interfaces.SortingAlgorithms;
 
 public interface IAlgorithmsService<T> where T : IComparable<T>
 {

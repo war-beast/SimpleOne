@@ -1,6 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
 using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 using SimpleAlgo.Services;
+using SimpleAlgo.Services.SortingAlgorithms;
 
 namespace SimpleOne.Utils;
 

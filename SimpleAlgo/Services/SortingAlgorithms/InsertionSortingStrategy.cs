@@ -1,6 +1,7 @@
 ﻿using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 
-namespace SimpleAlgo.Services;
+namespace SimpleAlgo.Services.SortingAlgorithms;
 
 public class InsertionSortingStrategy<T> : SortingStrategyBase<T>, IInsertionSortingStrategy<T> where T : IComparable<T>
 {

@@ -1,6 +1,7 @@
 ﻿using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 
-namespace SimpleAlgo.Services;
+namespace SimpleAlgo.Services.SortingAlgorithms;
 
 public class BubbleSortingStrategy<T> : SortingStrategyBase<T>, IBubbleSortingStrategy<T> where T : IComparable<T>
 {

@@ -1,6 +1,7 @@
 ﻿using SimpleAlgo.Interfaces;
+using SimpleAlgo.Interfaces.SortingAlgorithms;
 
-namespace SimpleAlgo.Services;
+namespace SimpleAlgo.Services.SortingAlgorithms;
 
 public class MergeSortingStrategy<T> : SortingStrategyBase<T>, IMergeSortingStrategy<T> where T : IComparable<T>
 {
