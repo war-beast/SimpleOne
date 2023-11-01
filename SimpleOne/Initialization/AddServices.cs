@@ -1,5 +1,4 @@
-﻿using SimpleAlgo.Interfaces;
-using SimpleAlgo.Interfaces.SearchingAlgorithms;
+﻿using SimpleAlgo.Interfaces.SearchingAlgorithms;
 using SimpleAlgo.Interfaces.SortingAlgorithms;
 using SimpleAlgo.Services.SearchingAlgorithms;
 using SimpleAlgo.Services.SortingAlgorithms;
@@ -22,6 +21,7 @@ public static class AddServices
 
 		services.AddTransient(typeof(IBinarySearchStrategy<>), typeof(BinarySearchStrategy<>));
 		services.AddTransient(typeof(IJumpSearchStrategy<>), typeof(JumpSearchStrategy<>));
+		services.AddTransient(typeof(IInterpolatedSearchStrategy<>), typeof(InterpolatedSearchStrategy<>));
 
 		services.AddTransient(typeof(IAlgorithmsService<>), typeof(AlgorithmsService<>));
 		services.AddTransient(typeof(ISearchingAlgorithmsService<>), typeof(SearchAlgorithmService<>));
