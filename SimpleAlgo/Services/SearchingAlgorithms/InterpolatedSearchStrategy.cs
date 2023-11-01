@@ -23,6 +23,16 @@ public class InterpolatedSearchStrategy<T> : SearchingStrategyBase<int>, IInterp
 
 		var position = left + (searchElement - array[left]) * (right - left) / (array[right] - array[left]);
 
+		if (position == array.Count - 1 && array[position].CompareTo(searchElement) != 0)
+		{
+			return AbsentResult;
+		}
+
+		if (position > array.Count - 1 || (position == 0 && array[position].CompareTo(searchElement) != 0))
+		{
+			return AbsentResult;
+		}
+
 		return array[position].CompareTo(searchElement) switch
 		{
 			0 => position,
