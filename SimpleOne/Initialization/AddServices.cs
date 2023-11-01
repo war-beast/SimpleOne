@@ -22,6 +22,7 @@ public static class AddServices
 		services.AddTransient(typeof(IBinarySearchStrategy<>), typeof(BinarySearchStrategy<>));
 		services.AddTransient(typeof(IJumpSearchStrategy<>), typeof(JumpSearchStrategy<>));
 		services.AddTransient(typeof(IInterpolatedSearchStrategy<>), typeof(InterpolatedSearchStrategy<>));
+		services.AddTransient(typeof(IExponentialSearchStrategy<>), typeof(ExponentialSearchStrategy<>));
 
 		services.AddTransient(typeof(IAlgorithmsService<>), typeof(AlgorithmsService<>));
 		services.AddTransient(typeof(ISearchingAlgorithmsService<>), typeof(SearchAlgorithmService<>));

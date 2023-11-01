@@ -9,12 +9,14 @@ public class SearchAlgoFactory<T> : ISearchAlgoFactory<T> where T : IComparable<
 
 	public SearchAlgoFactory(IBinarySearchStrategy<T> binarySearchStrategy,
 		IJumpSearchStrategy<T> jumpSearchStrategy,
-		IInterpolatedSearchStrategy<T> interpolatedSearchStrategy)
+		IInterpolatedSearchStrategy<T> interpolatedSearchStrategy,
+		IExponentialSearchStrategy<T> exponentialSearchStrategy)
 	{
 		_algorithms = new Dictionary<SearchTypes, ISearchAlgorithm<T>>{
 			{ SearchTypes.Binary, binarySearchStrategy },
 			{ SearchTypes.Jump, jumpSearchStrategy },
-			{ SearchTypes.Interpolation, interpolatedSearchStrategy }
+			{ SearchTypes.Interpolation, interpolatedSearchStrategy },
+			{ SearchTypes.Exponential, exponentialSearchStrategy }
 		};
 	}
 
