@@ -93,4 +93,29 @@ public class SearchingAlgorithmController : Controller
 			? Ok(result.Data)
 			: BadRequest(result.Error);
 	}
+
+	/// <summary>
+	/// Экспоненциальный поиск
+	/// </summary>
+	/// <param name="request"></param>
+	/// <returns></returns>
+	[HttpPost("exponential")]
+	public IActionResult SearchByExponential([FromBody] IntegerSearchRequest request)
+	{
+		#region Поиск работает только по отсортированному массиву
+
+		var sortedArrayResult = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Array);
+		if (sortedArrayResult.IsFailure)
+		{
+			BadRequest(sortedArrayResult.Error);
+		}
+
+		#endregion
+
+		var result = _searchingAlgorithmsService.Find(SearchTypes.Interpolation, sortedArrayResult.Data, request.Element);
+
+		return result.IsSuccess
+			? Ok(result.Data)
+			: BadRequest(result.Error);
+	}
 }
