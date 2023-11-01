@@ -1,6 +1,8 @@
-﻿namespace SimpleAlgo.Interfaces.SearchingAlgorithms;
+﻿using SimpleAlgo.Services.SearchingAlgorithms;
 
-public interface IInterpolatedSearchStrategy<in T> : ISearchAlgorithm<T> where T : IComparable<T>
+namespace SimpleAlgo.Interfaces.SearchingAlgorithms;
+
+public interface IInterpolatedSearchStrategy<T> : ISearchAlgorithm<T> where T : IComparable<T>
 {
-	
+
 }
