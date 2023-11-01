@@ -13,6 +13,36 @@ public abstract class SearchingStrategyBase<T> : ISearchAlgorithm<T> where T : I
 			: LinearSearch(array, searchElement);
 	}
 
+	/// <summary>
+	/// Рекурсивный бинарный поиск. Может использоваться, как часть других алгоритмов
+	/// </summary>
+	/// <param name="array">Массив</param>
+	/// <param name="start">Индекс начала отрезка поиска</param>
+	/// <param name="end">Индекс конца отрезка поиска</param>
+	/// <param name="searchElement">Искомый элемент</param>
+	/// <returns></returns>
+	protected static int BinarySearch(IReadOnlyList<T> array, int start, int end, T searchElement)
+	{
+		if (end == start && array[end].CompareTo(searchElement) == 0)
+		{
+			return end;
+		}
+
+		if (end == start && array[end].CompareTo(searchElement) != 0)
+		{
+			return AbsentResult;
+		}
+
+		var middle = start + ((end - start) >> 1);
+
+		return searchElement.CompareTo(array[middle]) switch
+		{
+			< 0 => BinarySearch(array, start, middle - 1, searchElement),
+			> 0 => BinarySearch(array, middle + 1, end, searchElement),
+			_ => middle
+		};
+	}
+
 	private static int LinearSearch(IReadOnlyList<T> array, T searchElement)
 	{
 		for (var i = 0; i < array.Count; i++)

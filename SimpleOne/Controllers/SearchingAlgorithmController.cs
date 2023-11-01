@@ -112,7 +112,7 @@ public class SearchingAlgorithmController : Controller
 
 		#endregion
 
-		var result = _searchingAlgorithmsService.Find(SearchTypes.Interpolation, sortedArrayResult.Data, request.Element);
+		var result = _searchingAlgorithmsService.Find(SearchTypes.Exponential, sortedArrayResult.Data, request.Element);
 
 		return result.IsSuccess
 			? Ok(result.Data)
