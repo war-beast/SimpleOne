@@ -27,7 +27,7 @@ public class SearchingAlgorithmController : Controller
 	[HttpPost("binary")]
 	public IActionResult SearchBinary([FromBody] IntegerSearchRequest request)
 	{
-		#region Бинарный поиск работает только по отсортированному массиву
+		#region Поиск работает только по отсортированному массиву
 
 		var sortedArrayResult = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Array);
 		if (sortedArrayResult.IsFailure)
@@ -52,7 +52,7 @@ public class SearchingAlgorithmController : Controller
 	[HttpPost("jump")]
 	public IActionResult SearchByJump([FromBody] IntegerSearchRequest request)
 	{
-		#region Бинарный поиск работает только по отсортированному массиву
+		#region Поиск работает только по отсортированному массиву
 
 		var sortedArrayResult = _algorithmsService.GetSortResult(SortTypes.InsertionSort, request.Array);
 		if (sortedArrayResult.IsFailure)
