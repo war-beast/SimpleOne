@@ -10,7 +10,7 @@ public abstract class SearchingStrategyBase<T> : ISearchAlgorithm<T> where T : I
 	{
 		return array.Length == 0 
 			? AbsentResult 
-			: LinearSearch(array, searchElement);
+			: LinearSearch(array, 0, array.Length - 1, searchElement);
 	}
 
 	/// <summary>
@@ -43,7 +43,7 @@ public abstract class SearchingStrategyBase<T> : ISearchAlgorithm<T> where T : I
 		};
 	}
 
-	private static int LinearSearch(IReadOnlyList<T> array, T searchElement)
+	protected static int LinearSearch(IReadOnlyList<T> array, int start, int end, T searchElement)
 	{
 		for (var i = 0; i < array.Count; i++)
 		{

@@ -37,15 +37,7 @@ public class JumpSearchStrategy<T> : SearchingStrategyBase<T>, IJumpSearchStrate
 				break;
 			}
 		}
-
-		for (var idx = partitionStart; idx < array.Count && idx <= partitionEnd; idx++)
-		{
-			if (array[idx].CompareTo(searchElement) == 0)
-			{
-				return idx;
-			}
-		}
-
-		return AbsentResult;
+		
+		return LinearSearch(array, partitionStart, partitionEnd, searchElement);
 	}
 }
