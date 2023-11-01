@@ -216,7 +216,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"array\": [-5,-4,-1,0,1,2,3,5,6,9,11,13,14,15,17,19,20,23,25,27,29,31,34,35,37,39],\r\n    \"element\": 29\r\n}",
+					"raw": "{\r\n    \"array\": [-5,-4,-1,0,1,2,3,5,6,9,11,13,14,15,17,19,20,23,25,27,29,31,34,35,37,39],\r\n    \"element\": 27\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -233,6 +233,64 @@
 					"path": [
 						"search",
 						"jump"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Поиск интерполяцией",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"array\": [-5,-4,-1,0,1,2,3,5,6,9,11,13,14,15,17,19,20,23,25,27,29,31,34,35,37,39],\r\n    \"element\": 17\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/search/interpolation",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"search",
+						"interpolation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Экспоненциальный поиск",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"array\": [-5,-4,-1,0,1,2,3,5,6,9,11,13,14,15,17,19,20,23,25,27,29,31,34,35,37,39],\r\n    \"element\": 27\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7284/search/exponential",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7284",
+					"path": [
+						"search",
+						"exponential"
 					]
 				}
 			},
