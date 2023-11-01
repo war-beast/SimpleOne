@@ -5,6 +5,7 @@ using SimpleOne.Utils;
 
 //Расскоментировать, если нужно запускать бенчмарки
 //var benchmark = BenchmarkRunner.Run<AlgorithmsBenchmark>();
+//var benchmark = BenchmarkRunner.Run<SearchAlgorithmsBenchmark>();
 
 var builder = WebApplication.CreateBuilder(args);
 
