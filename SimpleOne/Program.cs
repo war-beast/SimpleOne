@@ -1,7 +1,6 @@
-using BenchmarkDotNet.Running;
+using Microsoft.AspNetCore.Mvc;
 using SimpleOne.Initialization;
 using SimpleOne.Middlewares;
-using SimpleOne.Utils;
 
 //Расскоментировать, если нужно запускать бенчмарки
 //var benchmark = BenchmarkRunner.Run<AlgorithmsBenchmark>();

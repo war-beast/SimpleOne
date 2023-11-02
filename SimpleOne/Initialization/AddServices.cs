@@ -1,5 +1,7 @@
-﻿using SimpleAlgo.Interfaces.SearchingAlgorithms;
+﻿using SimpleAlgo.Interfaces.DesignPatterns.Builder;
+using SimpleAlgo.Interfaces.SearchingAlgorithms;
 using SimpleAlgo.Interfaces.SortingAlgorithms;
+using SimpleAlgo.Services.DesignPatterns.Builder;
 using SimpleAlgo.Services.SearchingAlgorithms;
 using SimpleAlgo.Services.SortingAlgorithms;
 
@@ -26,5 +28,16 @@ public static class AddServices
 
 		services.AddTransient(typeof(IAlgorithmsService<>), typeof(AlgorithmsService<>));
 		services.AddTransient(typeof(ISearchingAlgorithmsService<>), typeof(SearchAlgorithmService<>));
+
+		#region DesignPatterns
+
+		services.AddTransient<ICarBuilder, SedanBuilder>();
+		services.AddTransient<ICarBuilder, CrossoverBuilder>();
+		services.AddTransient<ICarBuilder, BuggyBuilder>();
+		services.AddTransient<ICarBuilder, MilitaryCarBuilder>();
+		services.AddTransient<ICarBuilderDirectorService, CarBuilderDirectorService>();
+		services.AddScoped<ICarBuilderFactory, CarBuilderFactory>();
+
+		#endregion
 	}
 }
