@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using SimpleOne.Initialization;
 using SimpleOne.Middlewares;
 
