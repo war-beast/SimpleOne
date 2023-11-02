@@ -2,6 +2,7 @@
 using SimpleAlgo.Enums;
 using SimpleAlgo.Extensions;
 using SimpleAlgo.Interfaces.DesignPatterns.Builder;
+using SimpleAlgo.Interfaces.DesignPatterns.FluentBuilder;
 
 namespace SimpleOne.Controllers;
 
@@ -10,10 +11,13 @@ namespace SimpleOne.Controllers;
 public class BuilderController : Controller
 {
 	private readonly ICarBuilderDirectorService _carBuilderDirectorService;
+	private readonly IFluentCarBuilderDirectorService _fluentBuilderDirectorService;
 
-	public BuilderController(ICarBuilderDirectorService carBuilderDirectorService)
+	public BuilderController(ICarBuilderDirectorService carBuilderDirectorService, 
+		IFluentCarBuilderDirectorService fluentBuilderDirectorService)
 	{
 		_carBuilderDirectorService = carBuilderDirectorService;
+		_fluentBuilderDirectorService = fluentBuilderDirectorService;
 	}
 
 	/// <summary>
@@ -28,6 +32,21 @@ public class BuilderController : Controller
 		
 		return result.IsSuccess 
 			? Ok(result.Data) 
+			: BadRequest(result.Error);
+	}
+
+	/// <summary>
+	/// Реализация паттеран Строитель
+	/// </summary>
+	/// <param name="type"></param>
+	/// <returns></returns>
+	[HttpGet("fluent-builder/{type:int}")]
+	public IActionResult FluentBuilder(BuilderTypes type)
+	{
+		var result = _fluentBuilderDirectorService.BuildCar(type);
+
+		return result.IsSuccess
+			? Ok(result.Data)
 			: BadRequest(result.Error);
 	}
 
