@@ -1,9 +1,14 @@
-﻿using SimpleAlgo.Interfaces.DesignPatterns.Builder;
+﻿using SimpleAlgo.Enums;
+using SimpleAlgo.Interfaces.DesignPatterns.Bridge;
+using SimpleAlgo.Interfaces.DesignPatterns.Builder;
 using SimpleAlgo.Interfaces.DesignPatterns.FluentBuilder;
+using SimpleAlgo.Interfaces.DesignPatterns.Flyweight;
 using SimpleAlgo.Interfaces.SearchingAlgorithms;
 using SimpleAlgo.Interfaces.SortingAlgorithms;
+using SimpleAlgo.Services.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Builder;
 using SimpleAlgo.Services.DesignPatterns.FluentBuilder;
+using SimpleAlgo.Services.DesignPatterns.Flyweight;
 using SimpleAlgo.Services.SearchingAlgorithms;
 using SimpleAlgo.Services.SortingAlgorithms;
 
@@ -46,6 +51,17 @@ public static class AddServices
 		services.AddTransient<IFluentCarBuilder, MilitaryFluentCarBuilder>();
 		services.AddTransient<IFluentCarBuilderDirectorService, CarFluentBuilderDirectorService>();
 		services.AddScoped<IFluentCarBuilderFactory, CarFluentBuilderFactory>();
+		
+		services.AddSingleton<IBattleShip>(new Fighter(BattleShipType.Fighter));
+		services.AddSingleton<IBattleShip>(new Carrier(BattleShipType.Carrier));
+		services.AddSingleton<IBattleShip>(new BattleShip(BattleShipType.BattleShip));
+		services.AddTransient<ICombatMission, PlanetMission>();
+		services.AddTransient<ICombatMission, SpaceMission>();
+		services.AddTransient<ICombatMission, OrbitMission>();
+		services.AddTransient<IBattleShipsBridgeService, BattleShipsBridgeService>();
+
+		services.AddTransient<IBattleShipFactory, BattleShipFactory>();
+		services.AddTransient<IShipStorage, ShipStorage>();
 
 		#endregion
 	}
