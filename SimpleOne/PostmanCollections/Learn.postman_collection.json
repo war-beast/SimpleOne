@@ -7,6 +7,127 @@
 	},
 	"item": [
 		{
+			"name": "Patterns",
+			"item": [
+				{
+					"name": "Builder",
+					"item": [
+						{
+							"name": "Получить список доступных строителей",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/builder/types",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"builder",
+										"types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Построить машину",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/builder/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"builder",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Построить машину (fluent-реализация)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/fluent-builder/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"fluent-builder",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bridge and Flyweight",
+					"item": [
+						{
+							"name": "Получить список доступных боевых миссий",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/bridge/missionTypes",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"bridge",
+										"missionTypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Выполнить боевую миссию",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/bridge/missionType/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"bridge",
+										"missionType",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Сортировка пузырьком",
 			"request": {
 				"method": "POST",
