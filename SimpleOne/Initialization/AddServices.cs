@@ -3,6 +3,7 @@ using SimpleAlgo.Interfaces.DesignPatterns.Bridge;
 using SimpleAlgo.Interfaces.DesignPatterns.Builder;
 using SimpleAlgo.Interfaces.DesignPatterns.FluentBuilder;
 using SimpleAlgo.Interfaces.DesignPatterns.Flyweight;
+using SimpleAlgo.Interfaces.DesignPatterns.Visitor;
 using SimpleAlgo.Interfaces.SearchingAlgorithms;
 using SimpleAlgo.Interfaces.SortingAlgorithms;
 using SimpleAlgo.Models.DesignPatterns.Bridge;
@@ -10,8 +11,10 @@ using SimpleAlgo.Services.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Builder;
 using SimpleAlgo.Services.DesignPatterns.FluentBuilder;
 using SimpleAlgo.Services.DesignPatterns.Flyweight;
+using SimpleAlgo.Services.DesignPatterns.Visitor;
 using SimpleAlgo.Services.SearchingAlgorithms;
 using SimpleAlgo.Services.SortingAlgorithms;
+using Visitor = SimpleAlgo.Models.DesignPatterns.Visitor;
 
 namespace SimpleOne.Initialization;
 
@@ -63,6 +66,12 @@ public static class AddServices
 
 		services.AddTransient<IBattleShipFactory, BattleShipFactory>();
 		services.AddTransient<IShipStorage, ShipStorage>();
+
+		services.AddTransient<IWeaponTunerDispatcher, WeaponTunerDispatcher>();
+		services.AddTransient<IShipWeaponContainable, Visitor.Fighter>();
+		services.AddTransient<IShipWeaponContainable, Visitor.Carrier>();
+		services.AddTransient<IShipWeaponContainable, Visitor.BattleShip>();
+		services.AddTransient<IVisitorService, Visitor.VisitorService>();
 
 		#endregion
 	}
