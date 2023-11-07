@@ -1,4 +1,5 @@
 ﻿using SimpleAlgo.Enums;
+using SimpleAlgo.Interfaces.DesignPatterns.Shared;
 using SimpleAlgo.Interfaces.DesignPatterns.Visitor;
 using SimpleAlgo.Models.DesignPatterns.Bridge;
 
@@ -12,7 +13,7 @@ public abstract class VisitingShipBase : ShipBase, IShipWeaponContainable
 
 	public abstract string Accept(IShipWeaponTuningVisitor visitor);
 
-	string IShipWeaponContainable.Name => base.Name;
+	string INameAndType<BattleShipType>.Name => Name;
 
-	BattleShipType IShipWeaponContainable.Type => Type;
+	BattleShipType INameAndType<BattleShipType>.Type => Type;
 }

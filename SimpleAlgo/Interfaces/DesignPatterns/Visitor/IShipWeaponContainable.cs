@@ -1,13 +1,9 @@
-﻿using System.Data;
-using SimpleAlgo.Enums;
+﻿using SimpleAlgo.Enums;
+using SimpleAlgo.Interfaces.DesignPatterns.Shared;
 
 namespace SimpleAlgo.Interfaces.DesignPatterns.Visitor;
 
-public interface IShipWeaponContainable
+public interface IShipWeaponContainable : INameAndType<BattleShipType>
 {
 	string Accept(IShipWeaponTuningVisitor visitor);
-
-	string Name { get; }
-
-	BattleShipType Type { get; }
 }
