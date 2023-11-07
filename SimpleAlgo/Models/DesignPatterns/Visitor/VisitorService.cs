@@ -19,23 +19,13 @@ public class VisitorService : IVisitorService
 
 	public Result<string> TuneShips(IReadOnlyList<BattleShipType> types)
 	{
-		if (types.Count == 0)
+		var validationResult = ValidateRequest(types);
+		if (validationResult.IsFailure)
 		{
-			return Result.Failure<string>("Не выбраны типы кораблей для настройки вооружения.");
+			return validationResult;
 		}
 
-		var accessibleTypes = Enum.GetValues(typeof(BattleShipType))
-			.Cast<BattleShipType>();
-		if (!types.All(x => accessibleTypes.Contains(x)))
-		{
-			return Result.Failure<string>("В запросе указаны неизвестные типы кораблей.");
-		}
-
-		var selectedShips = _ships.Where(x => types.Contains(x.Type));
-		foreach (var ship in selectedShips)
-		{
-			_weaponTunerDispatcher.Add(ship);
-		}
+		SelectVisitingShips(types);
 
 		//Для простоты экземпляры конкретных посетителей получим через new()
 		StringBuilder sb = new();
@@ -46,4 +36,38 @@ public class VisitorService : IVisitorService
 
 		return Result.Success(sb.ToString());
 	}
+
+	#region Private methods
+
+	private static Result<string> ValidateRequest(IReadOnlyCollection<BattleShipType> types)
+	{
+		if (types.Count == 0)
+		{
+			{
+				return Result.Failure<string>("Не выбраны типы кораблей для настройки вооружения.");
+			}
+		}
+
+		var accessibleTypes = Enum.GetValues(typeof(BattleShipType))
+			.Cast<BattleShipType>();
+		if (!types.All(x => accessibleTypes.Contains(x)))
+		{
+			{
+				return Result.Failure<string>("В запросе указаны неизвестные типы кораблей.");
+			}
+		}
+
+		return Result.Success(string.Empty);
+	}
+
+	private void SelectVisitingShips(IReadOnlyList<BattleShipType> types)
+	{
+		var selectedShips = _ships.Where(x => types.Contains(x.Type));
+		foreach (var ship in selectedShips)
+		{
+			_weaponTunerDispatcher.Add(ship);
+		}
+	}
+
+	#endregion
 }
