@@ -18,6 +18,4 @@ public class Carrier : ShipBase, IBattleShip
 	{
 		return $"{Name}: Отправить истребители на защиту линейных кораблей.";
 	}
-
-	public BattleShipType Type => BattleShipType.Carrier;
 }

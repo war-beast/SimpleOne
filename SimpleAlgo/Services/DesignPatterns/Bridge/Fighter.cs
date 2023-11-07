@@ -18,6 +18,4 @@ public class Fighter : ShipBase, IBattleShip
 	{
 		return $"{Name}: Защита объекта от вражеских истребителей и торпед.";
 	}
-
-	public BattleShipType Type => BattleShipType.Fighter;
 }

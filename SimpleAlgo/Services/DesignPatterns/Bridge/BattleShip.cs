@@ -18,6 +18,4 @@ public class BattleShip : ShipBase, IBattleShip
 	{
 		return $"{Name}: Прикрытие объекта своей тушкой используя турели ПКО.";
 	}
-
-	public BattleShipType Type => BattleShipType.BattleShip;
 }
