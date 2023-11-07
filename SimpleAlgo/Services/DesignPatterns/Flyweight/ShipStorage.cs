@@ -1,8 +1,8 @@
 ﻿using SimpleAlgo.Enums;
 using SimpleAlgo.Interfaces.DesignPatterns.Bridge;
 using SimpleAlgo.Interfaces.DesignPatterns.Flyweight;
+using SimpleAlgo.Models.DesignPatterns.Bridge;
 using SimpleAlgo.Models.DesignPatterns.Flyweight;
-using SimpleAlgo.Services.DesignPatterns.Bridge;
 
 namespace SimpleAlgo.Services.DesignPatterns.Flyweight;
 

@@ -5,6 +5,7 @@ using SimpleAlgo.Interfaces.DesignPatterns.FluentBuilder;
 using SimpleAlgo.Interfaces.DesignPatterns.Flyweight;
 using SimpleAlgo.Interfaces.SearchingAlgorithms;
 using SimpleAlgo.Interfaces.SortingAlgorithms;
+using SimpleAlgo.Models.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Builder;
 using SimpleAlgo.Services.DesignPatterns.FluentBuilder;
