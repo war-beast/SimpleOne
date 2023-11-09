@@ -124,6 +124,66 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Visitor",
+					"item": [
+						{
+							"name": "Настроить вооружение кораблей",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[1,2,3]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7284/pattern/visitor",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"visitor"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Composite",
+					"item": [
+						{
+							"name": "Сформировать тактическую группу",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:7284/pattern/composite/2",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7284",
+									"path": [
+										"pattern",
+										"composite",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
@@ -287,7 +347,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7284/algo/quickInt",
+					"raw": "https://localhost:7284/algo/mergeInt",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -295,7 +355,7 @@
 					"port": "7284",
 					"path": [
 						"algo",
-						"quickInt"
+						"mergeInt"
 					]
 				}
 			},
