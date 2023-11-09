@@ -9,6 +9,9 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Interfaces\DesignPatterns\Bridge\" />
+    <Folder Include="Interfaces\DesignPatterns\Composite\" />
+    <Folder Include="Models\DesignPatterns\Composite\" />
+    <Folder Include="Services\DesignPatterns\Composite\" />
   </ItemGroup>
 
 </Project>

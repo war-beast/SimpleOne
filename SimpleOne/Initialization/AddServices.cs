@@ -1,6 +1,7 @@
 ﻿using SimpleAlgo.Enums;
 using SimpleAlgo.Interfaces.DesignPatterns.Bridge;
 using SimpleAlgo.Interfaces.DesignPatterns.Builder;
+using SimpleAlgo.Interfaces.DesignPatterns.Composite;
 using SimpleAlgo.Interfaces.DesignPatterns.FluentBuilder;
 using SimpleAlgo.Interfaces.DesignPatterns.Flyweight;
 using SimpleAlgo.Interfaces.DesignPatterns.Visitor;
@@ -9,6 +10,7 @@ using SimpleAlgo.Interfaces.SortingAlgorithms;
 using SimpleAlgo.Models.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Bridge;
 using SimpleAlgo.Services.DesignPatterns.Builder;
+using SimpleAlgo.Services.DesignPatterns.Composite;
 using SimpleAlgo.Services.DesignPatterns.FluentBuilder;
 using SimpleAlgo.Services.DesignPatterns.Flyweight;
 using SimpleAlgo.Services.DesignPatterns.Visitor;
@@ -72,6 +74,8 @@ public static class AddServices
 		services.AddTransient<IShipWeaponContainable, Visitor.Carrier>();
 		services.AddTransient<IShipWeaponContainable, Visitor.BattleShip>();
 		services.AddTransient<IVisitorService, Visitor.VisitorService>();
+
+		services.AddTransient<ICombatGroupComposerService, CombatGroupComposerService>();
 
 		#endregion
 	}
