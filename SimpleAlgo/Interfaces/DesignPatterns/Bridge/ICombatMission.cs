@@ -9,7 +9,7 @@ namespace SimpleAlgo.Interfaces.DesignPatterns.Bridge;
 /// </summary>
 public interface ICombatMission
 {
-	MissionType GetType();
+	MissionType GetMissionType();
 
 	Result<string> Fight();
 

@@ -23,7 +23,7 @@ public class BattleShipsBridgeService : IBattleShipsBridgeService
 		switch (missionType)
 		{
 			case MissionType.Planet:
-				mission = _missions.First(x => x.GetType() == missionType);
+				mission = _missions.First(x => x.GetMissionType() == missionType);
 				mission.SetImplementor(new[]
 					{
 						new ShipOrder(BattleShipType.BattleShip, 2),
@@ -33,7 +33,7 @@ public class BattleShipsBridgeService : IBattleShipsBridgeService
 				);
 				break;
 			case MissionType.Space:
-				mission = _missions.First(x => x.GetType() == missionType);
+				mission = _missions.First(x => x.GetMissionType() == missionType);
 				mission.SetImplementor(new[]
 					{
 						new ShipOrder(BattleShipType.BattleShip, 4),
@@ -42,7 +42,7 @@ public class BattleShipsBridgeService : IBattleShipsBridgeService
 				);
 				break;
 			case MissionType.Orbit:
-				mission = _missions.First(x => x.GetType() == missionType);
+				mission = _missions.First(x => x.GetMissionType() == missionType);
 				mission.SetImplementor(new[]
 					{
 						new ShipOrder(BattleShipType.Carrier, 1),

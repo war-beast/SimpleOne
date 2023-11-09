@@ -12,12 +12,12 @@ public class PlanetMission : CombatMissionBase
 	{
 	}
 
-	public override MissionType GetType() => MissionType.Planet;
+	public override MissionType GetMissionType() => MissionType.Planet;
 
 	public override Result<string> Fight()
 	{
 		var sb = new StringBuilder();
-		sb.AppendLine(GetType().GetEnumDescription());
+		sb.AppendLine(GetMissionType().GetEnumDescription());
 		sb.AppendLine(">------Начинаем захват планеты с уничтожением наземных пусковых ракетных шахт------<");
 
 		foreach (var ship in Ships)

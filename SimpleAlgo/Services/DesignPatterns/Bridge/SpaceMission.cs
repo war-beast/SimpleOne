@@ -12,12 +12,12 @@ public class SpaceMission : CombatMissionBase
 	{
 	}
 
-	public override MissionType GetType() => MissionType.Space;
+	public override MissionType GetMissionType() => MissionType.Space;
 
 	public override Result<string> Fight()
 	{
 		var sb = new StringBuilder();
-		sb.AppendLine(GetType().GetEnumDescription());
+		sb.AppendLine(GetMissionType().GetEnumDescription());
 		sb.AppendLine(">------Начинаем уничтожение вражеского флота вторжения------<");
 
 		foreach (var ship in Ships)

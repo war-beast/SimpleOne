@@ -11,7 +11,7 @@ public abstract class CombatMissionBase : ICombatMission
 	private readonly IShipStorage _storage;
 	protected IEnumerable<IBattleShip> Ships { get; private set; } = Enumerable.Empty<IBattleShip>();
 
-	public abstract MissionType GetType();
+	public abstract MissionType GetMissionType();
 
 	protected CombatMissionBase(IShipStorage storage)
 	{
