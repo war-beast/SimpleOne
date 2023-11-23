@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using System.Collections.Generic;
-using static SimpleOne.Utils.SearchAlgorithmsBenchmark;
+using SimpleAlgo.Services.DifferentTesting;
 
 namespace SimpleOne.Utils;
 
@@ -8,50 +7,122 @@ namespace SimpleOne.Utils;
 [MemoryDiagnoser(true)]
 public class ReverseBenchmark
 {
-	public IEnumerable<IEnumerable<int>> Arrays()
+	private readonly ReversingService _reversingService;
+	public ReverseBenchmark()
 	{
-		yield return Enumerable.Range(0, 100);
-		yield return Enumerable.Range(0, 10000);
+		_reversingService = new ReversingService();
 	}
 
-	[Benchmark(Description = "Метод Array.Reverse()")]
-	[ArgumentsSource(nameof(Arrays))]
-	public int[] NativeArrayReverse(IEnumerable<int> array)
+	public record ClassPair(IEnumerable<TestUser> Source, int Count)
 	{
-		var arr = array.ToArray();
-		Array.Reverse(arr);
-
-		return arr;
-	}
-
-	[Benchmark(Description = "Реверс добавлением пустого массива")]
-	[ArgumentsSource(nameof(Arrays))]
-	public int[] ReverseByNewArray(IEnumerable<int> array)
-	{
-		var count = array.Count();
-
-		var myArray = new int[count];
-		var idx = count - 1;
-
-		foreach (var item in array)
+		public override string ToString()
 		{
-			myArray[idx--] = item;
+			return $"{Count} классов";
 		}
+	}
 
-		return myArray;
+	public record StructPair(IEnumerable<StructUser> Source, int Count){
+		public override string ToString()
+		{
+			return $"{Count} структур";
+		}
+	}
+
+	public IEnumerable<ClassPair> Arrays()
+	{
+		yield return new ClassPair(GetUsers(100), 100);
+		yield return new ClassPair(GetUsers(10000), 10000);
+	}
+
+	public IEnumerable<StructPair> StructArrays()
+	{
+		yield return new StructPair(GetStructUsers(100), 100);
+		yield return new StructPair(GetStructUsers(10000), 10000);
+	}
+
+	private static IEnumerable<TestUser> GetUsers(int count)
+	{
+		for (int idx = 0; idx < count; idx++)
+		{
+			yield return new TestUser($"user: {idx}", idx);
+		}
+	}
+
+	private static IEnumerable<StructUser> GetStructUsers(int count)
+	{
+		for (int idx = 0; idx < count; idx++)
+		{
+			yield return new StructUser($"user: {idx}", idx);
+		}
+	}
+
+	[Benchmark(Description = "Метод IEnumerable.Reverse()")]
+	[ArgumentsSource(nameof(Arrays))]
+	public void NativeReverse(ClassPair pair)
+	{
+		_ = _reversingService.ReverseNative(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Исходный реверс из задания")]
+	[ArgumentsSource(nameof(Arrays))]
+	public void ReverseByList(ClassPair pair)
+	{
+		_ = _reversingService.ReverseByList(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Реверс с использованием стека")]
+	[ArgumentsSource(nameof(Arrays))]
+	public void ReverseByStack(ClassPair pair)
+	{
+		_ = _reversingService.ReverseByStack(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Реверс преобразованием в массив")]
+	[ArgumentsSource(nameof(Arrays))]
+	public void ReverseByArray(ClassPair pair)
+	{
+		_ = _reversingService.ReverseByArray(pair.Source).Count();
 	}
 
 	[Benchmark(Description = "Реверс c использованием связанного списка")]
 	[ArgumentsSource(nameof(Arrays))]
-	public LinkedList<int> ReverseByLinkedList(IEnumerable<int> array)
+	public void ReverseByLinkedList(ClassPair pair)
 	{
-		var list = new LinkedList<int>();
+		_ = _reversingService.ReverseByLinkedList(pair.Source).Count();
+	}
 
-		foreach (var item in array)
-		{
-			list.AddFirst(item);
-		}
+	[Benchmark(Description = "Метод IEnumerable.Reverse()")]
+	[ArgumentsSource(nameof(StructArrays))]
+	public void NativeReverse(StructPair pair)
+	{
+		_ = _reversingService.ReverseNative(pair.Source).Count();
+	}
 
-		return list;
+	[Benchmark(Description = "Исходный реверс из задания")]
+	[ArgumentsSource(nameof(StructArrays))]
+	public void ReverseByList(StructPair pair)
+	{
+		_ = _reversingService.ReverseByList(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Реверс с использованием стека")]
+	[ArgumentsSource(nameof(StructArrays))]
+	public void ReverseByStack(StructPair pair)
+	{
+		_ = _reversingService.ReverseByStack(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Реверс преобразованием в массив")]
+	[ArgumentsSource(nameof(StructArrays))]
+	public void ReverseByArrayStruct(StructPair pair)
+	{
+		_ = _reversingService.ReverseByArray(pair.Source).Count();
+	}
+
+	[Benchmark(Description = "Реверс c использованием связанного списка")]
+	[ArgumentsSource(nameof(StructArrays))]
+	public void ReverseByLinkedList(StructPair pair)
+	{
+		_ = _reversingService.ReverseByLinkedList(pair.Source).Count();
 	}
 }
