@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleOne", "SimpleOne\Simp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleAlgo", "SimpleAlgo\SimpleAlgo.csproj", "{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsTesting", "AlgorithmsTesting\AlgorithmsTesting.csproj", "{F691F84F-8E7F-415F-B710-F6F822B6D01C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553} = {343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{343BBC4E-1E2D-4ACC-ACA1-9A256EF94553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F691F84F-8E7F-415F-B710-F6F822B6D01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F691F84F-8E7F-415F-B710-F6F822B6D01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F691F84F-8E7F-415F-B710-F6F822B6D01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F691F84F-8E7F-415F-B710-F6F822B6D01C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
